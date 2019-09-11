@@ -1,0 +1,21 @@
+﻿@model  MovieProject.ViewModels.CategoryMovieCountViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="col-xl-3 col-lg-4 col-md-5">
+    <div class="sidebar-categories">
+        <div class="head">Browse Categories Here</div>
+        <ul class="main-categories">
+            @foreach (var category in Model.CategoryMoviesCount)
+            {
+                <li class="main-nav-list">
+                    <a asp-area="" asp-controller="Movies" asp-action="Index" asp-route-category="@category.Name">
+                        <span class="lnr lnr-arrow-right"></span>@category.Name<span class="number">( @category.MoviesCount )</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

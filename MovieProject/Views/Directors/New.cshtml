@@ -1,0 +1,28 @@
+﻿@model MovieProject.ViewModels.DirectorFormViewModel
+@{
+    ViewData["Title"] = "New Director";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+
+<div class="container index-container">
+    <form asp-controller="Directors" asp-action="Save" enctype="multipart/form-data">
+        <h5>Add a new Director</h5>
+        <hr>
+        <div class="form-group">
+            <label asp-for="@Model.Director.Name" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Director.Name" type="text" class="col-md-10 form-control" />
+            <span asp-validation-for="@Model.Director.Name" class="text-danger"></span>
+        </div>
+
+        <input asp-for="@Model.Director.Id" type="hidden" class="form-control" />
+
+        <input type="submit" value="Submit" class="btn btn-dark" />
+    </form>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+}

@@ -1,0 +1,67 @@
+﻿@model MovieProject.ViewModels.DirectorDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+@if (Model.Director != null)
+{
+    <div class="container index-container">
+        <section class="blog_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog_left_sidebar">
+                            <article class="row blog_item">
+                                <div class="col-md-10">
+                                    <div class="blog_post">
+                                        <div class="blog_details">
+                                            <h2>@Model.Director.Name</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="director_detail_area">
+            <div class="container">
+                <div class="row">
+
+                    @foreach (var movie in Model.Director.Movies)
+                    {
+                        <div class="col-lg-4">
+                            <div class="categories_post">
+                                @if (!string.IsNullOrWhiteSpace(movie.Poster))
+                                {
+                                    <img class="img-fluid" src="~/assets/upload/@movie.Poster" alt="@movie.Name">
+                                }
+                                else
+                                {
+                                    <img class="img-fluid" src="~/assets/upload/movie-poster.jpg" alt="@movie.Name">
+                                }
+                                <div class="categories_details">
+                                    <div class="categories_text">
+                                        <h5><a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h5>
+                                        <div class="border_line"></div>
+                                        @*<p>Enjoy your social life together</p>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </section>
+    </div>
+}
+else
+{
+    <p><br /><br />we don't have any director details</p>
+}
+
+

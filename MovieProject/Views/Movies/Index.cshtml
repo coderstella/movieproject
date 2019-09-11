@@ -1,0 +1,106 @@
+﻿@model MovieProject.ViewModels.MovieListViewModel
+
+@{
+    ViewData["Title"] = "Movie List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+
+<div class="container index-container">
+    <p>
+        <a asp-area="" asp-controller="Movies" asp-action="New" class="btn new-btn btn-dark">New Movie</a>
+    </p>
+
+    @if (Model.Movies != null && Model.Movies.Any())
+    {
+        <div class="row">
+            @await Component.InvokeAsync("CategorySidebar")
+            <div class="col-xl-9 col-lg-8 col-md-7">
+                <!-- Start Filter Bar -->
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sorting">
+                        
+                    </div>
+                    <div class="sorting mr-auto">
+                        
+                    </div>
+                    <nav aria-label="Suppliers navigation example">
+                        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model.Movies })
+                    </nav>
+                </div>
+                <!-- End Filter Bar -->
+                <!-- Start Best Seller -->
+                <section class="lattest-product-area pb-40 category-list">
+                    <div class="row">
+                        <!-- single product -->
+                        @foreach (var movie in Model.Movies)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-product">
+                                    @if (!string.IsNullOrWhiteSpace(movie.Poster))
+                                    {
+                                        <img class="img-fluid" src="~/assets/upload/@movie.Poster" alt="@movie.Name">
+                                    }
+                                    else
+                                    {
+                                        <img class="img-fluid" src="~/assets/upload/movie-poster.jpg" alt="@movie.Name">
+                                    }
+                                    <div class="product-details">
+                                        <h6>@movie.Name</h6>
+                                        <div class="price">
+                                            <h6>@movie.Price</h6>
+                                            @*<h6 class="l-through">@movie.Price</h6>*@
+                                        </div>
+                                       <div class="prd-bottom">
+                                             @*<a href="" class="social-info">
+                                                <span class="ti-bag"></span>
+                                                <p class="hover-text">add to bag</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-heart"></span>
+                                                <p class="hover-text">Wishlist</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-sync"></span>
+                                                <p class="hover-text">compare</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-move"></span>
+                                                <p class="hover-text">view more</p>
+                                            </a>*@
+                                        </div>
+                                        <div class="prd-bottom-opp">
+                                            <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">View Details</a> |
+                                            <a asp-area="" asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id">Edit</a> |
+                                            <a asp-area="" asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+                <!-- End Best Seller -->
+                <!-- Start Filter Bar -->
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sorting mr-auto">
+                        
+                    </div>
+                    <nav aria-label="Suppliers navigation example">
+                        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model.Movies })
+                    </nav>
+                </div>
+                <!-- End Filter Bar -->
+            </div>
+        </div>
+    }
+    else
+    {
+        <p style="font-weight: bold; color:red;">we dont have any Movie</p>
+    }
+    @*@(await Component.InvokeAsync<PagerViewComponent>(Model))*@
+</div>
+
+
+

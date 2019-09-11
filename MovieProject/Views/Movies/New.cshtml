@@ -1,0 +1,102 @@
+﻿@model MovieProject.ViewModels.MovieFormViewModel
+@{
+    ViewData["Title"] = "New Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+
+@*@if(TempData["ServerValidationError"] != null)
+    {
+    <div class="alert alert-danger">@TempData["ServerValidationError"]</div>
+    }*@
+
+<div class="container index-container">
+    <form asp-controller="Movies" asp-action="Save" enctype="multipart/form-data">
+        <h5>Add a new Movie</h5>
+        <hr>
+        <div class="form-group">
+            <label asp-for="@Model.Movie.Name" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.Name" type="text" class="col-md-10 form-control" />
+            <span asp-validation-for="@Model.Movie.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Movie.RunningTime" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.RunningTime" type="text" class="col-md-10 form-control" />
+            <span asp-validation-for="@Model.Movie.RunningTime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Movie.Price" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.Price" type="text" class="col-md-10 form-control" />
+            <span asp-validation-for="@Model.Movie.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Movie.ReleaseDate" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.ReleaseDate" ID="txtDate" class="col-md-10 form-control" />
+            <span asp-validation-for="@Model.Movie.ReleaseDate" class="text-danger"></span>
+        </div>
+        @if (Model.Categories != null)
+        {
+            <div class="form-group">
+                <label asp-for="@Model.Movie.CategoryId" class="col-md-2 control-label">Category</label>
+                <select asp-for="@Model.Movie.CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Title"))" class="form-control col-md-10">
+                    <option>Select the Category</option>
+                </select>
+            </div>
+        }
+        @if (Model.Directors != null)
+        {
+            <div class="form-group">
+                <label asp-for="@Model.Movie.DirectorId" class="col-md-2 control-label">Director</label>
+                <select asp-for="@Model.Movie.DirectorId" asp-items="@(new SelectList(Model.Directors, "Id", "Name"))" class="form-control col-md-10">
+                    <option>Select the Director</option>
+                </select>
+            </div>
+        }
+        <button type="button" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">Add New Director</button>
+        <div id="ifYes" style="visibility:hidden">
+            <div class="form-group">
+                <label asp-for="@Model.NewDirectorName" class="col-md-2 control-label"></label>
+                <input asp-for="@Model.NewDirectorName" type="text" class="col-md-10 form-control" />
+                <span asp-validation-for="@Model.NewDirectorName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Movie.Description" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.Description" type="text" class="form-control col-md-10" />
+            <span asp-validation-for="@Model.Movie.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Movie.StarRate" class="col-md-2 control-label"></label>
+            <input asp-for="@Model.Movie.StarRate" type="text" class="form-control col-md-10" />
+            <span asp-validation-for="@Model.Movie.StarRate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="posterImage" class="col-md-2 control-label"></label>
+            <input name="posterImage" type="file" class="form-control col-md-10" style="height:auto" />
+        </div>
+
+        <input asp-for="@Model.Movie.Id" type="hidden" class="form-control" />
+
+        <input type="submit" value="Submit" class="btn btn-dark" />
+    </form>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script>
+        $(function () {
+            $("#<%= txtDate.ClientID %>").datepicker();
+        });
+    </script>
+    <script type="text/javascript">
+    function yesnoCheck() {
+        if (document.getElementById('yesCheck').onclick) {
+            document.getElementById('ifYes').style.visibility = 'visible';
+        }
+        else document.getElementById('ifYes').style.visibility = 'hidden';
+    }
+    </script>
+}

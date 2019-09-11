@@ -1,0 +1,69 @@
+﻿@model MovieProject.ViewModels.MovieListViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!-- start product Area -->
+    <section class="owl-carousel active-product-area section_gap">
+        @if (Model.Movies != null && Model.Movies.Any())
+        {
+            <div class="single-product-slider">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <div class="section-title">
+                                <h1>Famous Movies</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (var movie in Model.Movies)
+                        {
+                            <div class="col-lg-3 col-md-6">
+                                <div class="single-product">
+                                    @if (!string.IsNullOrWhiteSpace(movie.Poster))
+                                    {
+                                    <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"><img class="img-fluid" src="~/assets/upload/@movie.Poster" alt="@movie.Name"></a>
+                                    }
+                                    else
+                                    {
+                                        <img class="img-fluid" src="~/assets/upload/movie-poster.jpg" alt="@movie.Name">
+                                    }
+                                    <div class="product-details">
+                                        <h6><a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a></h6>
+                                        <div class="price">
+                                            <h6>@movie.Price</h6>
+                                            @*<h6 class="l-through">@movie.Price</h6>*@
+                                        </div>
+                                        @*<div class="prd-bottom">
+
+                                            <a href="" class="social-info">
+                                                <span class="ti-bag"></span>
+                                                <p class="hover-text">add to bag</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-heart"></span>
+                                                <p class="hover-text">Wishlist</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-sync"></span>
+                                                <p class="hover-text">compare</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-move"></span>
+                                                <p class="hover-text">view more</p>
+                                            </a>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p><br /><br />we dont have any movie</p>
+        }
+    </section>

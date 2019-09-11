@@ -1,0 +1,96 @@
+﻿@model MovieProject.ViewModels.MovieDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+
+<!--================Blog Area =================-->
+@if (Model.Movie != null)
+{
+    <div class="product_image_area" style="margin-top: -120px ; margin-bottom: 80px;">
+        <div class="container">
+            <div class="row s_product_inner">
+                <div class="col-lg-6">
+                    <div class="s_Product_carousel owl-carousel owl-theme owl-loaded">
+
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
+                                <div class="owl-item cloned" style="width: 540px; margin-right: 0px; margin-top: 75px;">
+                                    <div class="single-prd-item">
+                                        @if (!string.IsNullOrWhiteSpace(Model.Movie.Poster))
+                                        {
+                                            <img class="img-fluid" src="~/assets/upload/@Model.Movie.Poster" alt="@Model.Movie.Name">
+                                        }
+                                        else
+                                        {
+                                            <img class="img-fluid-default" src="~/assets/upload/movie-poster.jpg" alt="@Model.Movie.Name">
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-controls"><div class="owl-nav">@*<div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div>*@</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="s_product_text">
+                        <h3>@Model.Movie.Name</h3>
+                        <h2>@Model.Movie.Price</h2>
+                        <ul class="list">
+                            <li><a class="active" href="#"><span>Category :</span> @Model.Movie.Category.Title</a></li>
+                            <li><a asp-area="" asp-controller="Directors" asp-action="Details" asp-route-id="@Model.Movie.Director.Id"><span>Director :</span> @Model.Movie.Director.Name</a></li>
+                            <li><span>Running Time :</span> @Model.Movie.RunningTime minutes</li>
+                            <li>
+                                <span>Release Date :</span>
+                                @if (!string.IsNullOrWhiteSpace(Model.Movie.ReleaseDate.ToShortDateString()))
+                                {
+                                    @Model.Movie.ReleaseDate.ToShortDateString()
+                                }
+                            </li>
+                            <li>
+                                <span>StarRate :</span> @if (@Model.Movie.StarRate > 0)
+                                {
+
+                                    for (int i = 1; i <= Model.Movie.StarRate; i++)
+                                    {
+                                        <i class="fas fa-star fa"></i>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <text>Not reviewed yet</text>
+                                }
+                            </li>
+                            <li><a href="#"><span>Availibility :</span> In Stock</a></li>
+                        </ul>
+                        <p>Description: @Model.Movie.Description</p>
+                        @*<div class="product_count">
+                            <label for="qty">Quantity:</label>
+                            <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="fas fa-angle-up"></i></button>
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fas fa-angle-down"></i></button>
+                        </div>
+                        <div class="card_area d-flex align-items-center">
+                            @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.Movie.Id }, new { @class = "primary-btn" })
+                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
+                                    <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p><br /><br />we don't have any movie details</p>
+        }
+
+        @*<div class="clearfix" style="margin:20px auto 40px; border-bottom: 1px solid #e1e1e1; width:1120px;"></div>*@
+
+                            @*<partial name="_AddReview" />*@
+

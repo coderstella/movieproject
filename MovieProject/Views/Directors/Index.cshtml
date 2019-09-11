@@ -1,0 +1,41 @@
+﻿@model MovieProject.ViewModels.DirectorListViewModel
+@{
+    ViewData["Title"] = "Director List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Banner" />
+
+<div class="container index-container">
+    <p>
+        <a asp-area="" asp-controller="Directors" asp-action="New" class="btn new-btn btn-dark">New Director</a>
+    </p>
+    @if (Model.Directors != null && Model.Directors.Any())
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Directors</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var director in Model.Directors)
+                {
+                    <tr>
+                        <td>@director.Name</td>
+                        <td>
+                            <a asp-area="" asp-controller="Directors" asp-action="Details" asp-route-id="@director.Id">View Details</a> |
+                            <a asp-area="" asp-controller="Directors" asp-action="Edit" asp-route-id="@director.Id">Edit</a> |
+                            <a asp-area="" asp-controller="Directors" asp-action="Delete" asp-route-id="@director.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p style="font-weight: bold; color:red;">we dont have any Directors</p>
+    }
+</div>

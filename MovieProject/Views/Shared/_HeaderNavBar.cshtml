@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <div id="undefined-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 80px;">
+        <header class="header_area sticky-header" style="top: 0px;">
+            <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light main_box">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt=""></a>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item active"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Movies</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Movies" asp-action="Index">Overview</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Movies" asp-action="New">Add Movie</a></li>
+                                        @*<li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Checkout" asp-action="AddressAndPayment">Product Checkout</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="ShoppingCart" asp-action="Index">Shopping Cart</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Checkout" asp-action="Complete">Confirmation</a></li>*@
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Directors</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Directors" asp-action="Index">Overview</a></li>
+                                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Directors" asp-action="New">Add Director</a></li>
+                                    </ul>
+                                </li>
+                                @*<li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>*@
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <partial name="_LoginPartial" />
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </header>
+    </div>
+<!-- End Header Area -->

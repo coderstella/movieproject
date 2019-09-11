@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "wwwroot/lib/jquery-validate/"
+    },
+    {
+      "library": "popper.js@1.15.0",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "library": "magnific-popup.js@1.1.0",
+      "destination": "wwwroot/lib/"
+    },
+    {
+      "library": "jquery-nice-select@1.1.0",
+      "destination": "wwwroot/lib/jquery-nice-select/"
+    },
+    {
+      "library": "jquery-ajaxchimp@1.3.0",
+      "destination": "wwwroot/lib/jquery-ajaxchimp/"
+    },
+    {
+      "library": "parallax.js@1.5.0",
+      "destination": "wwwroot/lib/parallax.js/"
+    },
+    {
+      "library": "ion-rangeslider@2.3.0",
+      "destination": "wwwroot/lib/ion-rangeslider/"
+    },
+    {
+      "library": "font-awesome@5.10.2",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "noUiSlider@14.0.2",
+      "destination": "wwwroot/lib/noUiSlider/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.3.1",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "dist/css/bootstrap-grid.css",
+        "dist/css/bootstrap-grid.css.map",
+        "dist/css/bootstrap-grid.min.css",
+        "dist/css/bootstrap-grid.min.css.map",
+        "dist/css/bootstrap-reboot.css",
+        "dist/css/bootstrap-reboot.css.map",
+        "dist/css/bootstrap-reboot.min.css",
+        "dist/css/bootstrap-reboot.min.css.map",
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap.css.map",
+        "dist/css/bootstrap.min.css",
+        "dist/css/bootstrap.min.css.map",
+        "dist/js/bootstrap.bundle.js",
+        "dist/js/bootstrap.bundle.js.map",
+        "dist/js/bootstrap.bundle.min.js",
+        "dist/js/bootstrap.bundle.min.js.map",
+        "dist/js/bootstrap.js",
+        "dist/js/bootstrap.js.map",
+        "dist/js/bootstrap.min.js",
+        "dist/js/bootstrap.min.js.map",
+        "package.json",
+        "README.md",
+        "LICENSE"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "OwlCarousel2@2.2.0",
+      "destination": "wwwroot/lib/OwlCarousel2/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "linearicons@1.0.1",
+      "destination": "wwwroot/lib/linearicons/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery.sticky@1.0.4",
+      "destination": "wwwroot/lib/jquery.sticky"
+    }
+  ]
+}
