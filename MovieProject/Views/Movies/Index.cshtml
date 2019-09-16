@@ -20,10 +20,10 @@
                 <!-- Start Filter Bar -->
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        
+
                     </div>
                     <div class="sorting mr-auto">
-                        
+
                     </div>
                     <nav aria-label="Suppliers navigation example">
                         @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model.Movies })
@@ -52,23 +52,23 @@
                                             <h6>@movie.Price</h6>
                                             @*<h6 class="l-through">@movie.Price</h6>*@
                                         </div>
-                                       <div class="prd-bottom">
-                                             @*<a href="" class="social-info">
-                                                <span class="ti-bag"></span>
-                                                <p class="hover-text">add to bag</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-heart"></span>
-                                                <p class="hover-text">Wishlist</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-sync"></span>
-                                                <p class="hover-text">compare</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-move"></span>
-                                                <p class="hover-text">view more</p>
-                                            </a>*@
+                                        <div class="prd-bottom">
+                                            @*<a href="" class="social-info">
+                                                    <span class="ti-bag"></span>
+                                                    <p class="hover-text">add to bag</p>
+                                                </a>
+                                                <a href="" class="social-info">
+                                                    <span class="lnr lnr-heart"></span>
+                                                    <p class="hover-text">Wishlist</p>
+                                                </a>
+                                                <a href="" class="social-info">
+                                                    <span class="lnr lnr-sync"></span>
+                                                    <p class="hover-text">compare</p>
+                                                </a>
+                                                <a href="" class="social-info">
+                                                    <span class="lnr lnr-move"></span>
+                                                    <p class="hover-text">view more</p>
+                                                </a>*@
                                         </div>
                                         <div class="prd-bottom-opp">
                                             <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">View Details</a> |
@@ -85,7 +85,7 @@
                 <!-- Start Filter Bar -->
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting mr-auto">
-                        
+
                     </div>
                     <nav aria-label="Suppliers navigation example">
                         @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model.Movies })
@@ -98,8 +98,7 @@
     else
     {
         <p style="font-weight: bold; color:red;">we dont have any Movie</p>
-    }
-    @*@(await Component.InvokeAsync<PagerViewComponent>(Model))*@
+    }   
 </div>
 
 
