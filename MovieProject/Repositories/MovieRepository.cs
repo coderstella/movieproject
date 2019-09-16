@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using ReflectionIT.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace MovieProject.Repositories
 {
@@ -32,6 +33,10 @@ namespace MovieProject.Repositories
             }
 
             var paginatedList = await PagingList.CreateAsync(movies, itemPerPage ?? 3, pageCount ?? 1);
+            paginatedList.RouteValue = new RouteValueDictionary
+            {
+                {  "category", category }
+            };
             return paginatedList;
         }
 
