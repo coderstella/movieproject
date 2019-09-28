@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MovieProject.Dtos;
-using MovieProject.Models;
-using MovieProject.ViewModels;
+using movieproject.Dtos;
+using movieproject.Models;
+using movieproject.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Services
+namespace movieproject.Services
 {
     public interface IMovieLibraryService
     {
@@ -46,5 +46,7 @@ namespace MovieProject.Services
         Task<Boolean> UpdateDirector(Director director);
 
         Task<Boolean> DeleteDirector(int id);
+
+        Task<Movie> GetSingleMovieAsync(int id);
     }
 }

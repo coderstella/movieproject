@@ -1,10 +1,10 @@
-﻿using MovieProject.Models;
+﻿using movieproject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.ViewModels
+namespace movieproject.ViewModels
 {
     public class DirectorFormViewModel
     {

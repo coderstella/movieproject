@@ -13,13 +13,13 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
-using MovieProject.Data;
-using MovieProject.Dtos;
-using MovieProject.Models;
-using MovieProject.Services;
-using MovieProject.ViewModels;
+using movieproject.Data;
+using movieproject.Dtos;
+using movieproject.Models;
+using movieproject.Services;
+using movieproject.ViewModels;
 
-namespace MovieProject.Controllers
+namespace movieproject.Controllers
 {
     //[Authorize(Roles = "Admin")]
     public class MoviesController : Controller

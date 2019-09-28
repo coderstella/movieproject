@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MovieProject.Data;
-using MovieProject.Dtos;
-using MovieProject.Models;
-using MovieProject.Repositories.Interfaces;
+using movieproject.Data;
+using movieproject.Dtos;
+using movieproject.Models;
+using movieproject.Repositories.Interfaces;
 using ReflectionIT.Mvc.Paging;
 using System;
 using System.Collections;
@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 using ReflectionIT.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace MovieProject.Repositories
+namespace movieproject.Repositories
 {
     public class MovieRepository : IMovieRepository
     {
-        private readonly ApplicationDbContext _context;
-        public MovieRepository(ApplicationDbContext context)
+        private readonly MovieContext _context;
+        public MovieRepository(MovieContext context)
         {
             _context = context;
         }
@@ -78,12 +78,7 @@ namespace MovieProject.Repositories
         public async Task<Boolean> Update(Movie movie)
         {
             var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
-            /*
-            if (movie.Director.Id > 0)
-            {
-                _context.Entry<Director>(movie.Director).State = EntityState.Unchanged;
-            }
-            */
+            
             if(movieInDb != null)
             {
                 _context.Entry<Movie>(movieInDb).State = EntityState.Detached;
@@ -105,6 +100,13 @@ namespace MovieProject.Repositories
                 return true;
             }
             return false;
+        }
+
+        public async Task<Movie> GetSingleAsync(int id)
+        {
+            var singleMovie = await _context.Movies.SingleAsync(m => m.Id == id);
+
+            return singleMovie;
         }
 
     }

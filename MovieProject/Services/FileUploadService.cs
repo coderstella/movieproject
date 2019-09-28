@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Services
+namespace movieproject.Services
 {
     public class FileUploadService : IFileUploadService
     {

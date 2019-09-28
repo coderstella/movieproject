@@ -1230,11 +1230,7 @@ h1, h2, h3, h4, h5, h6 {
     .banner-area .active-banner-slider .owl-nav .owl-next {
       display: inline-block;
       margin: 10px;
-      opacity: .5;
-      -webkit-transition: all 0.3s ease 0s;
-      -moz-transition: all 0.3s ease 0s;
-      -o-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s; }
+      opacity: .5; }
       .banner-area .active-banner-slider .owl-nav .owl-prev:hover,
       .banner-area .active-banner-slider .owl-nav .owl-next:hover {
         opacity: 1; }
@@ -4976,11 +4972,7 @@ label {
   color: #222222;
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 0px;
-  padding-bottom: 20px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s; }
+  padding-bottom: 20px; }
   .l_blog_item .l_blog_text h4:hover {
     color: #c5322d; }
 

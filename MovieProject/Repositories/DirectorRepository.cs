@@ -1,19 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MovieProject.Data;
-using MovieProject.Models;
-using MovieProject.Repositories.Interfaces;
+using movieproject.Data;
+using movieproject.Models;
+using movieproject.Repositories.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Repositories
+namespace movieproject.Repositories
 {
     public class DirectorRepository : IDirectorRepository
     {
-        private readonly ApplicationDbContext _context;
-        public DirectorRepository(ApplicationDbContext context)
+        private readonly MovieContext _context;
+        public DirectorRepository(MovieContext context)
         {
             _context = context;
         }

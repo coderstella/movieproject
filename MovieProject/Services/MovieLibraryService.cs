@@ -2,19 +2,19 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http2;
-using MovieProject.Data;
-using MovieProject.Dtos;
-using MovieProject.Models;
-using MovieProject.Repositories;
-using MovieProject.Repositories.Interfaces;
-using MovieProject.ViewModels;
+using movieproject.Data;
+using movieproject.Dtos;
+using movieproject.Models;
+using movieproject.Repositories;
+using movieproject.Repositories.Interfaces;
+using movieproject.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Services
+namespace movieproject.Services
 {
     public class MovieLibraryService : IMovieLibraryService
     {
@@ -191,6 +191,12 @@ namespace MovieProject.Services
             var deleteDirector = await _directorRepository.DeleteAsync(id);
 
             return deleteDirector;
+        }
+
+        // shopping cart
+        public async Task<Movie> GetSingleMovieAsync(int id)
+        {
+            return await _movieRepository.GetSingleAsync(id);
         }
     }
 }
