@@ -1,11 +1,11 @@
-﻿using MovieProject.Dtos;
+﻿using movieproject.Dtos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.ViewModels
+namespace movieproject.ViewModels
 {
     public class CategoryMovieCountViewModel
     {

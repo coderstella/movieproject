@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using MovieProject.Dtos;
-using MovieProject.ViewModels;
+using movieproject.Dtos;
+using movieproject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Models
+namespace movieproject.Models
 {
     public class MyMappingProfiles : Profile
     {

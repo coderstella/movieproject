@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieProject.Services;
+using movieproject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Components
+namespace movieproject.Components
 {
     [ViewComponent(Name = "CategorySidebar")]
     public class CategorySidebarViewComponent : ViewComponent

@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MovieProject.Models;
+using movieproject.Models;
 
-namespace MovieProject.Controllers
+namespace movieproject.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
+            var userId = HttpContext.User.Identity.Name;
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
+            ViewData["Message"] = "Your application description page.";
             return View();
         }
 

@@ -1,0 +1,51 @@
+﻿@model movieproject.ViewModels.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<partial name="_Banner" />
+<div class="container index-container">
+    <p><h4>Here are the favourite movies in your shopping cart.</h4></p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Selected Amount</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+            <tr>
+                <td class="text-left"><b>@item.Movie.Name</b></td>
+                <td class="text-center">
+                <a class="btn btn-default" asp-action="RemoveFromCart" asp-route-id="@item.Movie.Id"><b>-</b></a>          
+                <b>@item.Quantity</b>
+                <a class="btn btn-default" asp-action="AddToCart" asp-route-id="@item.Movie.Id"><b>+</b></a></td>
+                <td class="text-right">@item.Movie.Price.ToString("c")</td>
+                <td class="text-right">@((item.Quantity * item.Movie.Price).ToString("c"))</td>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.ShoppingCartTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div align="right">
+        @if (Model.ShoppingCartTotal > 0)
+        {
+            <a asp-controller="Orders" asp-action="Checkout" class="btn btn-primary">Check Out</a>
+        }
+    </div>
+    <div align="left">
+        <a asp-action="ClearCart" class="btn btn-danger">Clear Cart</a>
+    </div>
+</div>

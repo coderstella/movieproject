@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MovieProject.Dtos;
-using MovieProject.Models;
+using movieproject.Dtos;
+using movieproject.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.ViewModels
+namespace movieproject.ViewModels
 {
     public class MovieFormViewModel
     {

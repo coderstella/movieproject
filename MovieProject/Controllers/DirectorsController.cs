@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MovieProject.Data;
-using MovieProject.Models;
-using MovieProject.Services;
-using MovieProject.ViewModels;
+using movieproject.Data;
+using movieproject.Models;
+using movieproject.Services;
+using movieproject.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MovieProject.Controllers
+namespace movieproject.Controllers
 {
     public class DirectorsController : Controller
     {

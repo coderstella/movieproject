@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieProject.Models;
+using movieproject.Models;
 using ReflectionIT.Mvc.Paging;
 using System;
 using System.Collections;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Repositories.Interfaces
+namespace movieproject.Repositories.Interfaces
 {
     public interface IMovieRepository
     {
@@ -26,5 +26,7 @@ namespace MovieProject.Repositories.Interfaces
         Task<Boolean> Update(Movie movie);
 
         Task<Boolean> DeleteAsync(int id);
+
+        Task<Movie> GetSingleAsync(int id);
     }
 }

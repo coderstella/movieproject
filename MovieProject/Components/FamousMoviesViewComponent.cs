@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MovieProject.Data;
-using MovieProject.Services;
+using movieproject.Data;
+using movieproject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieProject.Components
+namespace movieproject.Components
 {
     [ViewComponent(Name = "FamousMovies")]
     public class FamousMoviesViewComponent : ViewComponent
