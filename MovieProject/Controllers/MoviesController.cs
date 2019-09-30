@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Dtos;
 using movieproject.Models;
 using movieproject.Services;

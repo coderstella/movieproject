@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http2;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Dtos;
 using movieproject.Models;
 using movieproject.Repositories;
@@ -90,7 +90,7 @@ namespace movieproject.Services
         {
             if (posterImage != null)
             {
-                movieDto.Poster = _fileUploadService.UploadFile(posterImage, "upload");
+                movieDto.Poster = _fileUploadService.UploadFile(posterImage, "movies");
             }
 
             var newMovie = _mapper.Map<Movie>(movieDto);
