@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Services;
 using System;
 using System.Collections.Generic;

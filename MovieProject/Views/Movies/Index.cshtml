@@ -40,7 +40,7 @@
                                 <div class="single-product">
                                     @if (!string.IsNullOrWhiteSpace(movie.Poster))
                                     {
-                                        <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"><img class="img-fluid" src="~/assets/upload/@movie.Poster" alt="@movie.Name"></a>
+                                        <a asp-area="" asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"><img class="img-fluid" src="~/assets/@movie.Poster" alt="@movie.Name"></a>
                                     }
                                     else
                                     {

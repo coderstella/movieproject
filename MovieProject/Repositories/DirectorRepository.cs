@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Models;
 using movieproject.Repositories.Interfaces;
 using System;

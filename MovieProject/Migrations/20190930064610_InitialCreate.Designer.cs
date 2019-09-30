@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using movieproject.Data;
+using movieproject.Database;
 
 namespace movieproject.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20190926121242_InitialCreate")]
+    [Migration("20190930064610_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -343,30 +343,6 @@ namespace movieproject.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("movieproject.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("MovieId");
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderDetails");
-                });
-
             modelBuilder.Entity("movieproject.Models.ShippingAddress", b =>
                 {
                     b.Property<int>("Id")
@@ -501,19 +477,6 @@ namespace movieproject.Migrations
                     b.HasOne("movieproject.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("movieproject.Models.OrderDetail", b =>
-                {
-                    b.HasOne("movieproject.Models.Movie", "Movie")
-                        .WithMany()
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("movieproject.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("movieproject.Models.ShippingAddress", b =>

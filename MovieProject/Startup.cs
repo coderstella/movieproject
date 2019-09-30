@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using movieproject.Database;
 using movieproject.Dtos.Emails;
 using movieproject.Models;
 using movieproject.Repositories;
@@ -105,6 +107,16 @@ namespace movieproject
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                if (!serviceScope.ServiceProvider.GetService<MovieContext>().AllMigrationsApplied())
+                {
+                    serviceScope.ServiceProvider.GetService<MovieContext>().Database.Migrate();
+                    serviceScope.ServiceProvider.GetService<MovieContext>().EnsureSeeded();
+                }
+
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using movieproject.Areas.Identity.Extention;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Models;
 
 [assembly: HostingStartup(typeof(movieproject.Areas.Identity.IdentityHostingStartup))]

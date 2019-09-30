@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using movieproject.Models;
 using movieproject.Views.Movies;
-using movieproject.Models;
 
-namespace movieproject.Data
+namespace movieproject.Database
 {
     public class MovieContext : IdentityDbContext<ApplicationUser>
     {

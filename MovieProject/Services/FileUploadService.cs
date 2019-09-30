@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,31 +10,39 @@ namespace movieproject.Services
 {
     public class FileUploadService : IFileUploadService
     {
-        public FileUploadService()
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public FileUploadService(IHostingEnvironment hostingEnvironment)
         {
-
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public string UploadFile(IFormFile posterImage, string folder)
-        {
+        {            
             try
             {
+                var contentRootPath = _hostingEnvironment.ContentRootPath;
                 var fileName = Path.GetFileName(posterImage.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\" + folder, fileName);
+                var uploadLocation = Path.Combine(contentRootPath, "wwwroot\\assets\\" + folder);
+                
+                if (!Directory.Exists(uploadLocation))
+                {
+                    Directory.CreateDirectory(uploadLocation);
+                }
 
+                var filePath = Path.Combine(uploadLocation, fileName);
                 var count = 1;
                 var parts = fileName.Split(".");
                 while(System.IO.File.Exists(filePath))
                 {
                     var tempFileName = parts[0] + "-" + count + "." + parts[1];
-                    filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\" + folder, tempFileName);
+                    filePath = Path.Combine(uploadLocation, tempFileName);
                     count++;
                 }
 
                 using (var fileSteam = new FileStream(filePath, FileMode.CreateNew))
                 {
                     posterImage.CopyTo(fileSteam);
-                    return fileName;
+                    return folder + '/' + fileName;
                 }
             }
             catch (Exception ex)
@@ -41,6 +50,7 @@ namespace movieproject.Services
                 throw new Exception(ex.Message);
             }
         }
+
 
         /*
         public string UniqueFileName(IFormFile posterImage, string folder)

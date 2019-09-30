@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Views.Movies;
 using System;
 using System.Collections.Generic;

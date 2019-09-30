@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using movieproject.Data;
+using movieproject.Database;
 using movieproject.Models;
 using movieproject.Services;
 using movieproject.ViewModels;
