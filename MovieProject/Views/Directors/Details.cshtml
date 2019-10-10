@@ -37,11 +37,11 @@
                             <div class="categories_post">
                                 @if (!string.IsNullOrWhiteSpace(movie.Poster))
                                 {
-                                    <img class="img-fluid" src="~/assets/upload/@movie.Poster" alt="@movie.Name">
+                                    <img class="img-fluid" src="~/assets/@movie.Poster" alt="@movie.Name">
                                 }
                                 else
                                 {
-                                    <img class="img-fluid" src="~/assets/upload/movie-poster.jpg" alt="@movie.Name">
+                                    <img class="img-fluid" src="~/images/noposter.jpg" alt="@movie.Name">
                                 }
                                 <div class="categories_details">
                                     <div class="categories_text">
