@@ -10,9 +10,7 @@ namespace movieproject.Database
     public class MovieContextFactory : IDesignTimeDbContextFactory<MovieContext>
     {
         public MovieContextFactory()
-        {
-
-        }
+        {}
 
         public MovieContext CreateDbContext(string[] args)
         {
